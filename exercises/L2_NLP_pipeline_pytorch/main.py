@@ -58,7 +58,7 @@ except FileNotFoundError:
     # optimizer = optim.Adam(model.parameters(), lr=args.lr)
     optimizer = optim.Adadelta(model.parameters(), lr=args.lr)
     scheduler = optim.lr_scheduler.ReduceLROnPlateau(
-        optimizer, factor=0.2, verbose=True)
+        optimizer, factor=0.2, patience=4, verbose=True)
     criterion = nn.CrossEntropyLoss()
     print('| Model created')
 print('=' * 89)
