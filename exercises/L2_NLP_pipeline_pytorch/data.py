@@ -76,12 +76,12 @@ def collate_fn(data):
 def get_loader(path, batch_size):
     dictionary = Dictionary()
     dev_dataset = SST2(os.path.join(path, 'dev.txt'), dictionary)
-    dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size, num_workers=2,
+    dev_dataloader = DataLoader(dev_dataset, batch_size=batch_size,
                                 shuffle=True, collate_fn=collate_fn)
     test_dataset = SST2(os.path.join(path, 'test.txt'), dictionary)
-    test_dataloader = DataLoader(test_dataset, batch_size=batch_size, num_workers=2,
+    test_dataloader = DataLoader(test_dataset, batch_size=batch_size,
                                  shuffle=True, collate_fn=collate_fn)
     train_dataset = SST2(os.path.join(path, 'train.txt'), dictionary)
-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, num_workers=2,
+    train_dataloader = DataLoader(train_dataset, batch_size=batch_size,
                                   shuffle=True, collate_fn=collate_fn)
     return dev_dataloader, test_dataloader, train_dataloader, dictionary
