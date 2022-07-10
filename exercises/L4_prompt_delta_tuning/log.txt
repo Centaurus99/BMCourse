@@ -1,0 +1,51 @@
+root
+├── model (OPTModel)
+│   └── decoder (OPTDecoder)
+│       ├── embed_tokens (Embedding) weight:[50272, 2560]
+│       ├── embed_positions (OPTLearnedPositionalEmbedding) weight:[2050, 2560]
+│       ├── final_layer_norm (LayerNorm) weight:[2560] bias:[2560]
+│       └── layers (ModuleList)
+│           └── 0-31(OPTDecoderLayer)
+│               ├── self_attn (OPTAttention)
+│               │   ├── k_proj,v_proj,q_proj,out_proj(Linear) weight:[2560, 2560] bias:[2560]
+│               │   └── adapter (AdapterLayer)
+│               │       └── modulelist (Sequential)
+│               │           ├── down_proj (Linear) weight:[12, 2560] bias:[12]
+│               │           └── up_proj (Linear) weight:[2560, 12] bias:[2560]
+│               ├── self_attn_layer_norm,final_layer_norm(LayerNorm) weight:[2560] bias:[2560]
+│               ├── fc1 (Linear) weight:[10240, 2560] bias:[10240]
+│               └── fc2 (Linear) weight:[2560, 10240] bias:[2560]
+│                   └── adapter (AdapterLayer)
+│                       └── modulelist (Sequential)
+│                           ├── down_proj (Linear) weight:[12, 2560] bias:[12]
+│                           └── up_proj (Linear) weight:[2560, 12] bias:[2560]
+└── lm_head (Linear) weight:[50272, 2560]
+-----------------------------------------------------------------------------------------
+| epoch   0 |   101/  157 batches | lr 0.0010 | ms/batch 407.41 | loss 10.8870 |
+| epoch   0 |   157/  157 batches | lr 0.0010 | ms/batch 393.41 | loss 9.2976 |
+-----------------------------------------------------------------------------------------
+| end of epoch   0 | time: 119.25s | valid acc 27.58% | 
+| Model saved to ./raw_delta_ckpts/
+-----------------------------------------------------------------------------------------
+| epoch   1 |   101/  157 batches | lr 0.0008 | ms/batch 405.27 | loss 7.0438 |
+| epoch   1 |   157/  157 batches | lr 0.0008 | ms/batch 397.16 | loss 7.2829 |
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 121.99s | valid acc 27.78% | 
+| Model saved to ./raw_delta_ckpts/
+-----------------------------------------------------------------------------------------
+| epoch   2 |   101/  157 batches | lr 0.0006 | ms/batch 404.99 | loss 4.1987 |
+| epoch   2 |   157/  157 batches | lr 0.0006 | ms/batch 397.61 | loss 3.7544 |
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 124.50s | valid acc 27.48% | 
+-----------------------------------------------------------------------------------------
+| epoch   3 |   101/  157 batches | lr 0.0004 | ms/batch 404.84 | loss 1.8494 |
+| epoch   3 |   157/  157 batches | lr 0.0004 | ms/batch 397.06 | loss 1.5745 |
+-----------------------------------------------------------------------------------------
+| end of epoch   3 | time: 122.61s | valid acc 25.60% | 
+-----------------------------------------------------------------------------------------
+| epoch   4 |   101/  157 batches | lr 0.0002 | ms/batch 405.19 | loss 0.7414 |
+| epoch   4 |   157/  157 batches | lr 0.0002 | ms/batch 396.98 | loss 0.5060 |
+-----------------------------------------------------------------------------------------
+| end of epoch   4 | time: 121.60s | valid acc 26.49% | 
+-----------------------------------------------------------------------------------------
+TestAcc 0.28192697434219033
